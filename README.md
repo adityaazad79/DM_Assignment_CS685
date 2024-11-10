@@ -1,5 +1,11 @@
 CS 685 - Data Mining
 
+- **Name**: Aditya Azad
+- **Student ID**: 241110002
+- **Dept** : Computer Science & Engineering
+- **Course**: M.Tech - Y24
+
+
 #### Overview
 
 - This project uses Python 3.9+ and Streamlit to execute a set of Jupyter notebooks, providing a user interface to run them and view the resulting .csv files.
