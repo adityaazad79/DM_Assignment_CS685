@@ -111,7 +111,7 @@ def run_notebook(notebook_path):
         notebook = nbformat.read(f, as_version=4)
     
     # Set up the preprocessor with a kernel timeout of 600 seconds (10 minutes)
-    ep = ExecutePreprocessor(timeout=600, kernel_name='python3.9')
+    ep = ExecutePreprocessor(timeout=600, kernel_name='python')
     ep.preprocess(notebook, {'metadata': {'path': os.path.dirname(notebook_path)}})
 
 def run_all_notebooks():

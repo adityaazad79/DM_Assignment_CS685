@@ -2,11 +2,11 @@ CS 685 - Data Mining
 
 Overview
 
-This project uses Python 3.9+ and Streamlit to execute a set of Jupyter notebooks, providing a user interface to run them and view the resulting .csv files. Follow the steps below to install dependencies, configure permissions, and launch the Streamlit app.
+This project uses Python 3.9.6 and Streamlit to execute a set of Jupyter notebooks, providing a user interface to run them and view the resulting .csv files. Follow the steps below to install dependencies, configure permissions, and launch the Streamlit app.
 
 Requirements
 
-	•	Python version: 3.9
+	•	Python version: 3.9.6
 	•	Dependencies: Listed in requirements.txt
 
 Installation
