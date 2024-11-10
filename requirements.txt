@@ -1,0 +1,12 @@
+pandas
+matplotlib
+plotly
+nbformat
+seaborn
+scipy
+scikit-learn
+statsmodels
+streamlit
+nbconvert
+watchdog
+openpyxl

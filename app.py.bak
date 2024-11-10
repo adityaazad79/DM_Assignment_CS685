@@ -1,0 +1,124 @@
+# import streamlit as st
+# from nbconvert import NotebookExporter
+# from nbconvert.preprocessors import ExecutePreprocessor
+# import nbformat
+# import os
+
+# # List of notebook paths
+# NOTEBOOKS = [
+#     "1/1.ipynb",
+#     "2/2.ipynb",
+#     "3/3.ipynb",
+#     "4/4.ipynb",
+#     "5/5.ipynb",
+#     "6/6.ipynb",
+#     "7/7.ipynb",
+#     "8/8.ipynb",
+#     "9/9.ipynb",
+#     "10/10.ipynb"
+# ]
+
+# def run_notebook(notebook_path):
+#     """
+#     Executes a Jupyter notebook and returns the updated notebook object.
+#     """
+#     with open(notebook_path, "r") as f:
+#         notebook = nbformat.read(f, as_version=4)
+    
+#     # Set up the preprocessor with a kernel timeout of 600 seconds (10 minutes)
+#     ep = ExecutePreprocessor(timeout=600, kernel_name='python3')
+#     ep.preprocess(notebook, {'metadata': {'path': os.path.dirname(notebook_path)}})
+
+#     # Save the executed notebook (optional, if you want to save outputs)
+#     # with open(notebook_path.replace(".ipynb", "_executed.ipynb"), "w") as f:
+#     #     nbformat.write(notebook, f)
+
+# def run_all_notebooks():
+#     """
+#     Runs all notebooks in the NOTEBOOKS list and returns a message.
+#     """
+#     for notebook_path in NOTEBOOKS:
+#         st.write(f"Running {notebook_path}...")
+#         run_notebook(notebook_path)
+#     return "All notebooks have completed running."
+
+# # Streamlit app
+# st.title("Notebook Runner")
+
+# # Button to start running the notebooks
+# if st.button("Run All Notebooks"):
+#     with st.spinner("Running notebooks..."):
+#         completion_message = run_all_notebooks()
+#     st.success(completion_message)
+
+
+import streamlit as st
+from nbconvert.preprocessors import ExecutePreprocessor
+import nbformat
+import pandas as pd
+import os
+
+# List of notebook paths
+NOTEBOOKS = [
+    "1/1.ipynb",
+    "2/2.ipynb",
+    "3/3.ipynb",
+    "4/4.ipynb",
+    "5/5.ipynb",
+    "6/6.ipynb",
+    "7/7.ipynb",
+    "8/8.ipynb",
+    "9/9.ipynb",
+    "10/10.ipynb"
+]
+
+# List of CSV file paths and descriptions
+CSV_FILES = [
+    ("1/1_Yearly_absolute_change.csv", "This file contains yearly absolute change data."),
+    ("1/1_Yearly_percentage_change.csv", "This file shows yearly percentage change."),
+    ("1/5_Hi_lo_Abs_Pct_Month_change.csv", "This file highlights high and low absolute percentage changes by month."),
+    # Add more CSV file paths and descriptions as needed
+]
+
+def run_notebook(notebook_path):
+    """
+    Executes a Jupyter notebook and returns the updated notebook object.
+    """
+    with open(notebook_path, "r") as f:
+        notebook = nbformat.read(f, as_version=4)
+    
+    # Set up the preprocessor with a kernel timeout of 600 seconds (10 minutes)
+    ep = ExecutePreprocessor(timeout=600, kernel_name='python3')
+    ep.preprocess(notebook, {'metadata': {'path': os.path.dirname(notebook_path)}})
+
+def run_all_notebooks():
+    """
+    Runs all notebooks in the NOTEBOOKS list and returns a message.
+    """
+    for notebook_path in NOTEBOOKS:
+        st.write(f"Running {notebook_path}...")
+        run_notebook(notebook_path)
+    return "All notebooks have completed running."
+
+# Streamlit app
+st.title("Notebook Runner and CSV Viewer")
+
+# Section to run all notebooks
+if st.button("Run All Notebooks"):
+    with st.spinner("Running notebooks..."):
+        completion_message = run_all_notebooks()
+    st.success(completion_message)
+
+# Section to display CSV files with individual show/hide buttons and descriptions
+st.header("CSV File Viewer")
+
+# Loop through each CSV file, display the description, and add an expander for the table
+for csv_file, description in CSV_FILES:
+    # Display the description text above the expander
+    st.write(f"**{description}**")
+    with st.expander(f"View {os.path.basename(csv_file)}"):
+        try:
+            df = pd.read_csv(csv_file)
+            st.write(df)  # Display the DataFrame in Streamlit
+        except Exception as e:
+            st.error(f"Failed to load {csv_file}: {e}")
