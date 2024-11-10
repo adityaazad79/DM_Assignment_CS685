@@ -128,7 +128,7 @@ def run_all_notebooks():
 def delete_csv_files():
     try:
         # Run the shell command
-        subprocess.run("find . -type d -name '.venv' -prune -o -type f -name '*.csv' -delete", shell=True, check=True)
+        subprocess.run("find . -type d -name '.venv' -o -type f -name '*.csv' -delete", shell=True, check=True)
         st.success("CSV files deleted successfully!")
     except subprocess.CalledProcessError as e:
         st.error(f"Error occurred: {e}")
