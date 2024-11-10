@@ -137,14 +137,15 @@ def delete_csv_files():
 # Streamlit app
 st.title("CS 685 : Data Mining Assignment")
 
-st.subheader('Delete CSV Files in Current Directory')
+st.subheader('Delete All The Cached/Saved CSV Files')
 
 if st.button('Delete Existing CSV Files'):
     delete_csv_files()
 
+st.subheader('Run All 10 Notebooks')
 # Section to run all notebooks
 if st.button("Run All Notebooks"):
-    with st.spinner("Running notebooks..."):
+    with st.spinner("Running 10 notebooks, please wait..."):
         completion_message = run_all_notebooks()
     st.success(completion_message)
 
