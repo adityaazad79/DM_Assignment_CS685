@@ -10,3 +10,4 @@ streamlit
 nbconvert
 watchdog
 openpyxl
+ipykernel
