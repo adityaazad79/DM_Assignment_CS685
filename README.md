@@ -14,7 +14,7 @@ CS 685 - Data Mining
 
 ####  If you are using virtual environment, It's important to name the environment ".venv".
 
-- I have deployed an app for easy evaluation. It doesn't requires any installation [Visit the App](https://adityaazad79-dm-assignment-cs685-app-7bqazr.streamlit.app)
+- I have deployed an app for easy evaluation. It doesn't requires any installation [Visit the App](https://cs-685-assign-azad.streamlit.app)
 - The app sources the files from this GitHub repo [Github](https://github.com/adityaazad79/DM_Assignment_CS685)
 
 Requirements
