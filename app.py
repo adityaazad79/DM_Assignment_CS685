@@ -3,6 +3,8 @@ from nbconvert.preprocessors import ExecutePreprocessor
 import nbformat
 import pandas as pd
 import os
+import subprocess
+
 
 # List of notebook paths
 NOTEBOOKS = [
@@ -123,8 +125,22 @@ def run_all_notebooks():
         run_notebook(notebook_path)
     return "All notebooks have completed running."
 
+def delete_csv_files():
+    try:
+        # Run the shell command
+        subprocess.run("find . -type d -name '.venv' -prune -o -type f -name '*.csv' -delete", shell=True, check=True)
+        st.success("CSV files deleted successfully!")
+    except subprocess.CalledProcessError as e:
+        st.error(f"Error occurred: {e}")
+
+
 # Streamlit app
-st.title("Notebook Runner and CSV Viewer")
+st.title("CS 685 : Data Mining Assignment")
+
+st.subheader('Delete CSV Files in Current Directory')
+
+if st.button('Delete Existing CSV Files'):
+    delete_csv_files()
 
 # Section to run all notebooks
 if st.button("Run All Notebooks"):

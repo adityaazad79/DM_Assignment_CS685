@@ -1,8 +1,15 @@
 CS 685 - Data Mining
 
-Overview
+#### Overview
 
-This project uses Python 3.9 and Streamlit to execute a set of Jupyter notebooks, providing a user interface to run them and view the resulting .csv files. Follow the steps below to install dependencies, configure permissions, and launch the Streamlit app.
+- This project uses Python 3.9 and Streamlit to execute a set of Jupyter notebooks, providing a user interface to run them and view the resulting .csv files.
+
+- Kindly follow the steps below to install dependencies, configure permissions, and launch the Streamlit app.
+
+####  If you are using virtual environment, It's important to name the environment ".venv".
+
+- I have deployed an app for easy evaluation. It doesn't requires any installation [Visit the App](https://adityaazad79-dm-assignment-cs685-app-7bqazr.streamlit.app)
+- The app sources the files from this GitHub repo [Github](https://github.com/adityaazad79/DM_Assignment_CS685)
 
 Requirements
 
@@ -33,10 +40,14 @@ If the above shellscript does not work, please run:
 Once the script runs, your default web browser should open with the Streamlit app.
 
 Running Notebooks and Viewing Results
+    
+    1.  In the Streamlit interface, click on "Delete Existing CSV Files".
+        - This will delete all the existing csv files.
 
-	1.	In the Streamlit interface, click on “Run All Notebooks”. This will initiate the execution of 10 Jupyter notebooks.
+	2.  Click on “Run All Notebooks”.
+        - This will initiate the execution of 10 Jupyter notebooks.
 	
-	2.	Once the notebooks are processed, the resulting .csv files will be displayed in the browser interface for easy access and review.
+	3.  Once the notebooks are processed, the resulting .csv files will be displayed in the browser interface for easy access and review.
 
 Troubleshooting
 
