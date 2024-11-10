@@ -123,7 +123,7 @@ def run_all_notebooks():
     for notebook_path in NOTEBOOKS:
         st.write(f"Running {notebook_path}...")
         run_notebook(notebook_path)
-    return "All notebooks have completed running."
+    return "All notebooks have completed running. Now you may view the CSVs below"
 
 def delete_csv_files():
     try:
