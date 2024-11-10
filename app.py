@@ -55,7 +55,7 @@ CSV_FILES = [
     ("4/3_Hi_lo_Abs_Pct_Year_change.csv","Q4 : Yearly Highest and Lowest Change. - Visualisation available"),
     ("4/4_Change_from_prev_month.csv","Q4 : Change from Previous Month. - Visualisation available"),
     ("4/5_Hi_lo_Abs_Pct_Month_change.csv","Q4 : Month with Highest Positive and Negative Absolute and Percentage Change. - Visualisation available"),
-    ("5/2_Countrywise_Quarter_Data.csv","Q5 : Country-wise lean and peak quarter in terms of no of departures"),
+    ("5/2_Countrywise_Quarter_Data.csv","Q5 : No data is available for part 1 of question.\n\nQ5 : Country-wise lean and peak quarter in terms of no of departures"),
     ("5/2_continentwise_Quarter_Data.csv","Q5 : Continent-wise lean and peak quarter in terms of no of departures"),
     ("6/1_overall_dvf_distribution.csv","Q6 : Overall Yearly Domestic vs Foreign Distribution Probability"),
     ("6/1_overall_mode_distribution.csv","Q6 : Overall Yearly Mode-wise Distribution Probability"),
@@ -111,7 +111,7 @@ def run_notebook(notebook_path):
         notebook = nbformat.read(f, as_version=4)
     
     # Set up the preprocessor with a kernel timeout of 600 seconds (10 minutes)
-    ep = ExecutePreprocessor(timeout=600, kernel_name='python')
+    ep = ExecutePreprocessor(timeout=600, kernel_name='python3.9')
     ep.preprocess(notebook, {'metadata': {'path': os.path.dirname(notebook_path)}})
 
 def run_all_notebooks():
